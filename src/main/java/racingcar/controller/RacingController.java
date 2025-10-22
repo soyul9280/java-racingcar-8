@@ -17,6 +17,9 @@ public class RacingController {
         if(name.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_BLANK.message());
         }
+        if (name.length() < 5) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_LONG.message());
+        }
 
         return null;
     }
