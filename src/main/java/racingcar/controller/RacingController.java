@@ -5,8 +5,9 @@ import racingcar.message.ErrorMessage;
 import racingcar.view.InputView;
 
 public class RacingController {
-    Pattern comma=Pattern.compile(",");
+    Pattern splitComma=Pattern.compile(",");
     Pattern regex = Pattern.compile("^[a-zA-Z0-9가-힣ㄱ-ㅎㅏ-ㅣ]*$");
+    Pattern comma = Pattern.compile("^[,]*$");
 
     public RacingController() {
     }
@@ -20,11 +21,14 @@ public class RacingController {
         if(name.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_BLANK.message());
         }
-        if(name.startsWith(comma.pattern())||name.endsWith(comma.pattern())) {
+        if(comma.matcher(name).matches()) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_NO_NAME.message());
+        }
+        if(name.startsWith(splitComma.pattern())||name.endsWith(splitComma.pattern())) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_LOCATION_COMMA.message());
         }
 
-        String[] splitNames = name.split(comma.pattern());
+        String[] splitNames = name.split(splitComma.pattern());
         for (String splitName : splitNames) {
             if(!regex.matcher(splitName).matches()) {
                 throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_SPECIAL_CHARACTERS.message());
