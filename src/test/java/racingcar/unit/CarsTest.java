@@ -13,7 +13,7 @@ import racingcar.model.Car;
 import racingcar.model.CarName;
 import racingcar.model.Cars;
 
-class CarTest {
+class CarsTest {
 
     @DisplayName("정상: 이름의 길이가 5이하인 경우")
     @Test
