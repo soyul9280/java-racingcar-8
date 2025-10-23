@@ -17,6 +17,11 @@ public final class Utils {
         return Arrays.asList(input.split(splitComma.pattern()));
     }
 
+    public static int changeToInt(String input) {
+        validateAttemptNumber(input);
+        return Integer.parseInt(input);
+    }
+
     private static void validateInput(String input) {
         if(input==null) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_NULL.message());
@@ -29,6 +34,12 @@ public final class Utils {
         }
         if(input.startsWith(splitComma.pattern())||input.endsWith(splitComma.pattern())) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_LOCATION_COMMA.message());
+        }
+    }
+
+    private static void validateAttemptNumber(String input) {
+        if(input.isBlank()) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_BLANK.message());
         }
     }
 }
