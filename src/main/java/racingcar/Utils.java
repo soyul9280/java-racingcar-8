@@ -42,7 +42,7 @@ public final class Utils {
             throw new IllegalArgumentException(ErrorMessage.INVALID_ATTEMPT_NUMBER_NULL.message());
         }
         if(input.isBlank()) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_BLANK.message());
+            throw new IllegalArgumentException(ErrorMessage.INVALID_ATTEMPT_NUMBER_BLANK.message());
         }
     }
 }
