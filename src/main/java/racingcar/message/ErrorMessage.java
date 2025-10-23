@@ -11,7 +11,8 @@ public enum ErrorMessage {
     INVALID_NAME_SEQUENCE_COMMA("이름에 ,를 연속으로 사용할 수 없습니다."),
 
     INVALID_ATTEMPT_NUMBER_BLANK("시도 횟수에 빈 칸이 올 수 없습니다."),
-    INVALID_ATTEMPT_NUMBER_NULL("시도 횟수에 null이 올 수 없습니다.");
+    INVALID_ATTEMPT_NUMBER_NULL("시도 횟수에 null이 올 수 없습니다."),
+    INVALID_ATTEMPT_NUMBER_MINUS("시도 횟수에 음수가 올 수 없습니다.");
 
     private final String message;
 
