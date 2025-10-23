@@ -13,7 +13,7 @@ public final class Utils {
     }
 
     public static List<String> splitByComma(String input) {
-        validateInput(input);
+        validateNames(input);
         return Arrays.asList(input.split(splitComma.pattern()));
     }
 
@@ -22,7 +22,7 @@ public final class Utils {
         return Integer.parseInt(input);
     }
 
-    private static void validateInput(String input) {
+    private static void validateNames(String input) {
         if(input==null) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_NULL.message());
         }
