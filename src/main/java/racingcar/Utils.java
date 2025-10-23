@@ -38,6 +38,9 @@ public final class Utils {
     }
 
     private static void validateAttemptNumber(String input) {
+        if (input == null) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_ATTEMPT_NUMBER_NULL.message());
+        }
         if(input.isBlank()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_BLANK.message());
         }
