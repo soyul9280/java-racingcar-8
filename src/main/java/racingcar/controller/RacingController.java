@@ -15,7 +15,7 @@ public class RacingController {
     public String gameStart() {
         String name = InputView.name();
 
-        if(name ==null) {
+        if(name==null) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_NULL.message());
         }
         if(name.isEmpty()) {
@@ -30,6 +30,9 @@ public class RacingController {
 
         String[] splitNames = name.split(splitComma.pattern());
         for (String splitName : splitNames) {
+            if(splitName.isEmpty()) {
+                throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_SEQUENCE_COMMA.message());
+            }
             if(!regex.matcher(splitName).matches()) {
                 throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_SPECIAL_CHARACTERS.message());
             }
