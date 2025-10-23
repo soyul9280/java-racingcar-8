@@ -24,8 +24,12 @@ public class RacingController {
         if(name.startsWith(comma.pattern())||name.endsWith(comma.pattern())) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_LOCATION_COMMA.message());
         }
-        if (name.length() < 5) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_LONG.message());
+
+        String[] splitNames = name.split(comma.pattern());
+        for (String splitName : splitNames) {
+            if (splitName.length() > 5) {
+                throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_LONG.message());
+            }
         }
         return null;
     }
