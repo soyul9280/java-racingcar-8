@@ -21,7 +21,7 @@ public final class Utils {
         if(input==null) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_NULL.message());
         }
-        if(input.isEmpty()) {
+        if(input.isBlank()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_BLANK.message());
         }
         if(comma.matcher(input).matches()) {
