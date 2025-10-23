@@ -16,6 +16,9 @@ public class CarName {
         if(splitName.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_SEQUENCE_COMMA.message());
         }
+        if(splitName.contains(" ")) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_BLANK.message());
+        }
         if(!regex.matcher(splitName).matches()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_SPECIAL_CHARACTERS.message());
         }
