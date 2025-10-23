@@ -8,7 +8,6 @@ public class RacingController {
     Pattern comma=Pattern.compile(",");
     Pattern regex = Pattern.compile("^[a-zA-Z0-9가-힣ㄱ-ㅎㅏ-ㅣ]*$");
 
-
     public RacingController() {
     }
 
@@ -27,6 +26,9 @@ public class RacingController {
 
         String[] splitNames = name.split(comma.pattern());
         for (String splitName : splitNames) {
+            if(!regex.matcher(splitName).matches()) {
+                throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_SPECIAL_CHARACTERS.message());
+            }
             if (splitName.length() > 5) {
                 throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_LONG.message());
             }

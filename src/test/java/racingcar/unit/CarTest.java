@@ -61,7 +61,7 @@ class CarTest {
         assertThatThrownBy(()->
                 car.canMakeName(name)
                         .isIntanceOf(IllegalArgumentException.class)
-                        .hasMessage(ErrorMessage.INVALID_NAME_NOT_COMMA));
+                        .hasMessage(ErrorMessage.INVALID_NAME_SPECIAL_CHARACTERS));
     }
 
     @DisplayName("예외: 이름에 , 만 적은 경우")
