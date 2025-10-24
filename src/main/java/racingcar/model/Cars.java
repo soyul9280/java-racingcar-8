@@ -19,6 +19,20 @@ public record Cars(List<Car> carList) {
         carList.forEach(car->car.moveForward(randomNumber));
     }
 
+    public List<String> findWinnerList() {
+        return carList.stream()
+                .filter(car -> car.comparesPosition(car.getPosition()))
+                .map(Car::getName)
+                .toList();
+    }
+
+    private Integer findWinnerPosition() {
+        return carList.stream()
+                .map(Car::getPosition)
+                .max(Integer::compareTo)
+                .orElse(0);
+    }
+
 
     private int pickRandomNumber() {
         return Randoms.pickNumberInRange(0,9);
@@ -26,7 +40,7 @@ public record Cars(List<Car> carList) {
 
     @Override
     public String toString() {
-        return "Cars{" +
+        return carList +
                 "carList=" + carList +
                 '}';
     }

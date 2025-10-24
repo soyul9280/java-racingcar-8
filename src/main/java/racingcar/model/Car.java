@@ -20,6 +20,13 @@ public class Car {
         return position.getPosition() == checkNumber;
     }
 
+    public int getPosition() {
+        return position.getPosition();
+    }
+    public String getName() {
+        return name.getCarName();
+    }
+
     @Override
     public String toString() {
         return "Car{" +
