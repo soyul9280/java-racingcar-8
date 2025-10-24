@@ -11,7 +11,15 @@ public class RacingController {
     public String gameStart() {
         Cars cars = Cars.createCarList(InputView.name());
         AttemptNumber attemptNumber = AttemptNumber.create(InputView.attemptNumber());
-
+        gameProcess(cars, attemptNumber);
         return null;
+    }
+
+    private void gameProcess(Cars cars, AttemptNumber attemptNumber) {
+        int attempt = attemptNumber.attemptNumber();
+        while (attempt > 0) {
+            cars.commandMoveForward();
+            attempt--;
+        }
     }
 }
