@@ -16,6 +16,10 @@ public class Car {
         }
     }
 
+    public boolean comparesPosition(int checkNumber) {
+        return position.getPosition() == checkNumber;
+    }
+
     @Override
     public String toString() {
         return "Car{" +
