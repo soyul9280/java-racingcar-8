@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.Utils;
 
@@ -11,6 +12,16 @@ public record Cars(List<Car> carList) {
                 .map(Car::new)
                 .toList();
         return new Cars(carList);
+    }
+
+    public void commandMoveForward() {
+        int randomNumber = pickRandomNumber();
+        carList.forEach(car->car.moveForward(randomNumber));
+    }
+
+
+    private int pickRandomNumber() {
+        return Randoms.pickNumberInRange(0,9);
     }
 
     @Override

@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.message.ErrorMessage;
 
 public class Position {
@@ -17,13 +16,8 @@ public class Position {
         }
     }
 
-    public void moveForward(){
-        if(isPossible()){
-            position++;
-        }
+    public void increment(){
+        position++;
     }
 
-    private boolean isPossible() {
-        return Randoms.pickNumberInRange(0,9) >=4;
-    }
 }

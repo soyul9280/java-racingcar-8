@@ -10,6 +10,12 @@ public class Car {
         this.position=new Position(START_POSITION);
     }
 
+    public void moveForward(int randomNumber) {
+        if (randomNumber >= 4) {
+            position.increment();
+        }
+    }
+
     @Override
     public String toString() {
         return "Car{" +
