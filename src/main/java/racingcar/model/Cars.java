@@ -2,6 +2,7 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.Utils;
 
 //원시값 풀어주는
@@ -20,8 +21,9 @@ public record Cars(List<Car> carList) {
     }
 
     public List<String> findWinnerList() {
+        Integer winnerPosition = findWinnerPosition();
         return carList.stream()
-                .filter(car -> car.comparesPosition(car.getPosition()))
+                .filter(car -> car.comparesPosition(winnerPosition))
                 .map(Car::getName)
                 .toList();
     }
@@ -33,15 +35,14 @@ public record Cars(List<Car> carList) {
                 .orElse(0);
     }
 
-
     private int pickRandomNumber() {
         return Randoms.pickNumberInRange(0,9);
     }
 
     @Override
     public String toString() {
-        return carList +
-                "carList=" + carList +
-                '}';
+        return carList.stream()
+                .map(Car::toString)
+                .collect(Collectors.joining("\n"));
     }
 }

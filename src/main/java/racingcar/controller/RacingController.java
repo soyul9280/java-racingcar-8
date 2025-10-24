@@ -3,16 +3,17 @@ package racingcar.controller;
 import racingcar.model.AttemptNumber;
 import racingcar.model.Cars;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingController {
     public RacingController() {
     }
 
-    public String gameStart() {
+    public void gameStart() {
         Cars cars = Cars.createCarList(InputView.name());
         AttemptNumber attemptNumber = AttemptNumber.create(InputView.attemptNumber());
         gameProcess(cars, attemptNumber);
-        return null;
+        gameEnd(cars);
     }
 
     private void gameProcess(Cars cars, AttemptNumber attemptNumber) {
@@ -21,5 +22,10 @@ public class RacingController {
             cars.commandMoveForward();
             attempt--;
         }
+    }
+
+    private void gameEnd(Cars cars) {
+        OutputView.markingCar(cars);
+        OutputView.winner(cars.findWinnerList());
     }
 }

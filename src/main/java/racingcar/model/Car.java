@@ -2,6 +2,7 @@ package racingcar.model;
 
 public class Car {
     private static final int START_POSITION=0;
+    private static final String MARK = "-";
 
     private final CarName name;
     private final Position position;
@@ -29,8 +30,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "name=" + name +
-                '}';
+        return name.getCarName() + " : " + MARK.repeat(position.getPosition());
     }
 }
