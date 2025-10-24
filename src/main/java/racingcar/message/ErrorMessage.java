@@ -13,7 +13,9 @@ public enum ErrorMessage {
     INVALID_ATTEMPT_NUMBER_BLANK("시도 횟수에 빈 칸이 올 수 없습니다."),
     INVALID_ATTEMPT_NUMBER_NULL("시도 횟수에 null이 올 수 없습니다."),
     INVALID_ATTEMPT_NUMBER_MINUS("시도 횟수에 음수가 올 수 없습니다."),
-    INVALID_ATTEMPT_NUMBER_ZERO("시도 횟수에 0이 올 수 없습니다.");
+    INVALID_ATTEMPT_NUMBER_ZERO("시도 횟수에 0이 올 수 없습니다."),
+
+    INVALID_POSITION_MINUS("위치에 음수가 들어올 수 없습니다.");
 
     private final String message;
 
