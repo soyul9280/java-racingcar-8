@@ -30,11 +30,4 @@ public class CarName {
     public String getCarName() {
         return carName;
     }
-
-    @Override
-    public String toString() {
-        return "CarName{" +
-                "carName='" + carName + '\'' +
-                '}';
-    }
 }
