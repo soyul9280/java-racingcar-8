@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.model.Cars;
 
@@ -18,5 +19,6 @@ public class OutputView {
     public static void winner(List<String> winnerList) {
         String winners = String.join(",", winnerList);
         System.out.printf(WINNER_GUIDE, winners);
+        Console.close();
     }
 }
