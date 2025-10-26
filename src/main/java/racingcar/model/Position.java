@@ -20,8 +20,8 @@ public class Position {
         return position;
     }
 
-    public void increment(){
-        position++;
+    public void increment(int speed){
+        position += speed;
     }
 
 }
