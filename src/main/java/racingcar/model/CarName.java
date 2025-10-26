@@ -5,7 +5,7 @@ import racingcar.message.ErrorMessage;
 
 public class CarName {
     private final String carName;
-    Pattern regex = Pattern.compile("^[a-zA-Z0-9가-힣ㄱ-ㅎㅏ-ㅣ]*$");
+    Pattern specialCharacter = Pattern.compile("[^,a-zA-Z0-9가-힣ㄱ-ㅎㅏ-ㅣ]");
 
     public CarName(String splitName) {
         validateSplitName(splitName);
@@ -19,7 +19,7 @@ public class CarName {
         if(splitName.contains(" ")) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_BLANK.message());
         }
-        if(!regex.matcher(splitName).matches()) {
+        if(specialCharacter.matcher(splitName).find()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_SPECIAL_CHARACTERS.message());
         }
         if (splitName.length() > 5) {
