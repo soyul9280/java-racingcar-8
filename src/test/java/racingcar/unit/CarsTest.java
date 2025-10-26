@@ -14,19 +14,16 @@ import racingcar.model.CarName;
 import racingcar.model.Cars;
 
 class CarsTest {
-
     @DisplayName("정상: 이름의 길이가 5이하인 경우")
     @Test
     void ValidName_Success() {
         //given
         Cars cars = Cars.createCarList("Ayo,Mike");
-
         //when
         Cars result = new Cars(List.of(
                 new Car(new CarName("Ayo")),
                 new Car(new CarName("Mike"))
         ));
-
         //then
         assertThat(cars.toString()).isEqualTo(result.toString());
     }
@@ -92,6 +89,4 @@ class CarsTest {
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessage(ErrorMessage.INVALID_NAME_LOCATION_COMMA.message());
     }
-
-
 }

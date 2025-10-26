@@ -4,10 +4,11 @@ import java.util.regex.Pattern;
 import racingcar.message.ErrorMessage;
 
 public class CarName {
-    private final String carName;
     private static final String BLANK=" ";
     private static final int MAX_LENGTH=5;
     Pattern specialCharacter = Pattern.compile("[^,a-zA-Z0-9가-힣ㄱ-ㅎㅏ-ㅣ]");
+
+    private final String carName;
 
     public CarName(String splitName) {
         validateSplitName(splitName);

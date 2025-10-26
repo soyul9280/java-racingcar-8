@@ -1,13 +1,12 @@
 package racingcar.view;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import racingcar.model.Car;
 import racingcar.model.Cars;
 
 public class OutputView {
     private static String OUTPUT_GUIDE = "실행 결과";
     private static String WINNER_GUIDE = "최종 우승자 : %s";
+
     private OutputView() {
     }
 

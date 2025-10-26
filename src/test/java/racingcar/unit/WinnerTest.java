@@ -66,5 +66,4 @@ public class WinnerTest {
         //then
         assertThat(result).containsExactly(ayo,mike,alice);
     }
-
 }

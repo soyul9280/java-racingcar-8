@@ -11,7 +11,6 @@ import racingcar.message.ErrorMessage;
 import racingcar.model.AttemptNumber;
 
 public class AttemptNumberTest {
-
     @Test
     @DisplayName("예외: 시도 횟수가 0인 경우")
     void InvalidAttemptNumber_Zero_Fail() {

@@ -6,7 +6,6 @@ public class Car {
     private static final int SPEED = 1;
     private static final int RANDOM_BOUNDARY = 4;
 
-
     private final CarName name;
     private final Position position;
     private final int speed;

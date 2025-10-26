@@ -4,7 +4,6 @@ import racingcar.Utils;
 import racingcar.message.ErrorMessage;
 
 public record AttemptNumber(int attemptNumber) {
-
     public static AttemptNumber create(String input) {
         int changedNumber = Utils.changeToInt(input);
         validate(changedNumber);
