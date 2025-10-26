@@ -3,7 +3,7 @@ package racingcar.model;
 import racingcar.Utils;
 import racingcar.message.ErrorMessage;
 
-public record AttemptNumber(int attemptNumber) {
+public record AttemptNumber(int count) {
     public static AttemptNumber create(String input) {
         int changedNumber = Utils.changeToInt(input);
         validate(changedNumber);

@@ -19,7 +19,7 @@ public class RacingController {
     }
 
     private void gameProcess(Cars cars, AttemptNumber attemptNumber) {
-        int attempt = attemptNumber.attemptNumber();
+        int attempt = attemptNumber.count();
         while (attempt > 0) {
             cars.commandMoveForward();
             attempt--;
