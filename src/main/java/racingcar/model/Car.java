@@ -1,7 +1,7 @@
 package racingcar.model;
 
 public class Car {
-    private static final int START_POSITION=0;
+    private static final int START_POSITION = 0;
     private static final String MARK = "-";
     private static final int SPEED = 1;
     private static final int RANDOM_BOUNDARY = 4;
@@ -12,17 +12,17 @@ public class Car {
 
     public Car(CarName name) {
         this.name = name;
-        this.position=new Position(START_POSITION);
-        this.speed=SPEED;
+        this.position = new Position(START_POSITION);
+        this.speed = SPEED;
     }
 
     public void moveForward(int randomNumber) {
-        if (randomNumber>=RANDOM_BOUNDARY) {
+        if (randomNumber >= RANDOM_BOUNDARY) {
             position.increment(speed);
         }
     }
 
-    public boolean comparesPosition(int checkNumber) {
+    public boolean isSamePosition(int checkNumber) {
         return position.getPosition() == checkNumber;
     }
 

@@ -1,6 +1,5 @@
 package racingcar.unit;
 
-
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
@@ -43,5 +42,4 @@ public class AttemptNumberTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.INVALID_ATTEMPT_NUMBER_MINUS.message());
     }
-
 }

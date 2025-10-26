@@ -27,7 +27,7 @@ public record Cars(List<Car> carList) {
     public List<Car> findWinnerList() {
         Integer winnerPosition = findWinnerPosition();
         return carList.stream()
-                .filter(car -> car.comparesPosition(winnerPosition))
+                .filter(car -> car.isSamePosition(winnerPosition))
                 .toList();
     }
 

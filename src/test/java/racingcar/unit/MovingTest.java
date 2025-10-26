@@ -18,7 +18,7 @@ public class MovingTest {
         //when
         car.moveForward(randomNumber);
         //then
-        assertThat(car.comparesPosition(0)).isEqualTo(true);
+        assertThat(car.isSamePosition(0)).isEqualTo(true);
     }
 
     @ParameterizedTest(name = "[case : {0}]")
@@ -30,6 +30,6 @@ public class MovingTest {
         //when
         car.moveForward(randomNumber);
         //then
-        assertThat(car.comparesPosition(1)).isEqualTo(true);
+        assertThat(car.isSamePosition(1)).isEqualTo(true);
     }
 }
