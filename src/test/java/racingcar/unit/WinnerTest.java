@@ -32,9 +32,9 @@ public class WinnerTest {
         alice.moveForward(6);
         Cars cars = new Cars(List.of(ayo, mike,alice));
         //when
-        List<String> result = cars.findWinnerList();
+        List<Car> result = cars.findWinnerList();
         //then
-        assertThat(result).containsExactly("Ayo");
+        assertThat(result).containsExactly(ayo);
     }
 
     @Test
@@ -48,9 +48,9 @@ public class WinnerTest {
         alice.moveForward(6);
         Cars cars = new Cars(List.of(ayo, mike,alice));
         //when
-        List<String> result = cars.findWinnerList();
+        List<Car> result = cars.findWinnerList();
         //then
-        assertThat(result).containsExactly("Ayo","Alice");
+        assertThat(result).containsExactly(ayo,alice);
     }
 
     @Test
@@ -62,9 +62,9 @@ public class WinnerTest {
         alice.moveForward(7);
         Cars cars = new Cars(List.of(ayo, mike,alice));
         //when
-        List<String> result = cars.findWinnerList();
+        List<Car> result = cars.findWinnerList();
         //then
-        assertThat(result).containsExactly("Ayo","Mike","Alice");
+        assertThat(result).containsExactly(ayo,mike,alice);
     }
 
 }
