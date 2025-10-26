@@ -21,11 +21,10 @@ public record Cars(List<Car> carList) {
         }
     }
 
-    public List<String> findWinnerList() {
+    public List<Car> findWinnerList() {
         Integer winnerPosition = findWinnerPosition();
         return carList.stream()
                 .filter(car -> car.comparesPosition(winnerPosition))
-                .map(Car::getName)
                 .toList();
     }
 

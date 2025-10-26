@@ -1,6 +1,8 @@
 package racingcar.controller;
 
+import java.util.List;
 import racingcar.model.AttemptNumber;
+import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -26,6 +28,9 @@ public class RacingController {
 
     private void gameEnd(Cars cars) {
         OutputView.markingCar(cars);
-        OutputView.winner(cars.findWinnerList());
+        List<String> winnerNameList = cars.findWinnerList().stream()
+                .map(Car::getName)
+                .toList();
+        OutputView.winner(winnerNameList);
     }
 }
