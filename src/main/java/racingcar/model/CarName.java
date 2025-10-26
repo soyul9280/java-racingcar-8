@@ -4,8 +4,8 @@ import java.util.regex.Pattern;
 import racingcar.message.ErrorMessage;
 
 public class CarName {
-    private static final String BLANK=" ";
-    private static final int MAX_LENGTH=5;
+    private static final String BLANK = " ";
+    private static final int MAX_LENGTH = 5;
     Pattern specialCharacter = Pattern.compile("[^,a-zA-Z0-9가-힣ㄱ-ㅎㅏ-ㅣ]");
 
     private final String carName;
@@ -16,13 +16,13 @@ public class CarName {
     }
 
     private void validateSplitName(String splitName) {
-        if(splitName.isEmpty()) {
+        if (splitName.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_SEQUENCE_COMMA.message());
         }
-        if(splitName.contains(BLANK)) {
+        if (splitName.contains(BLANK)) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_BLANK.message());
         }
-        if(specialCharacter.matcher(splitName).find()) {
+        if (specialCharacter.matcher(splitName).find()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_SPECIAL_CHARACTERS.message());
         }
         if (splitName.length() > MAX_LENGTH) {
