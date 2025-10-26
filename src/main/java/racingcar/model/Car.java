@@ -3,6 +3,9 @@ package racingcar.model;
 public class Car {
     private static final int START_POSITION=0;
     private static final String MARK = "-";
+    private static final int SPEED = 1;
+    private static final int RANDOM_BOUNDARY = 4;
+
 
     private final CarName name;
     private final Position position;
@@ -11,11 +14,11 @@ public class Car {
     public Car(CarName name) {
         this.name = name;
         this.position=new Position(START_POSITION);
-        this.speed=1;
+        this.speed=SPEED;
     }
 
     public void moveForward(int randomNumber) {
-        if (randomNumber>=4) {
+        if (randomNumber>=RANDOM_BOUNDARY) {
             position.increment(speed);
         }
     }

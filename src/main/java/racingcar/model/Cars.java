@@ -6,6 +6,9 @@ import java.util.stream.Collectors;
 import racingcar.Utils;
 
 public record Cars(List<Car> carList) {
+    private static final int MIN_PICK_NUMBER = 0;
+    private static final int MAX_PICK_NUMBER = 9;
+
     public static Cars createCarList(String input) {
         List<Car> carList = Utils.splitByComma(input).stream()
                 .map(CarName::new)
@@ -36,7 +39,7 @@ public record Cars(List<Car> carList) {
     }
 
     private int pickRandomNumber() {
-        return Randoms.pickNumberInRange(0,9);
+        return Randoms.pickNumberInRange(MIN_PICK_NUMBER,MAX_PICK_NUMBER);
     }
 
     @Override
