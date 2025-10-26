@@ -20,14 +20,15 @@ public class RacingController {
 
     private void gameProcess(Cars cars, AttemptNumber attemptNumber) {
         int attempt = attemptNumber.count();
+        OutputView.guide();
         while (attempt > 0) {
             cars.commandMoveForward();
+            OutputView.markingCar(cars);
             attempt--;
         }
     }
 
     private void gameEnd(Cars cars) {
-        OutputView.markingCar(cars);
         List<String> winnerNameList = cars.findWinnerList().stream()
                 .map(Car::getName)
                 .toList();
