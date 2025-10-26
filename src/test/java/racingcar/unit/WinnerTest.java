@@ -30,7 +30,7 @@ public class WinnerTest {
         ayo.moveForward(7);
         mike.moveForward(2);
         alice.moveForward(6);
-        Cars cars = new Cars(List.of(ayo, mike,alice));
+        Cars cars = new Cars(List.of(ayo, mike, alice));
         //when
         List<Car> result = cars.findWinnerList();
         //then
@@ -46,11 +46,11 @@ public class WinnerTest {
         mike.moveForward(2);
         alice.moveForward(6);
         alice.moveForward(6);
-        Cars cars = new Cars(List.of(ayo, mike,alice));
+        Cars cars = new Cars(List.of(ayo, mike, alice));
         //when
         List<Car> result = cars.findWinnerList();
         //then
-        assertThat(result).containsExactly(ayo,alice);
+        assertThat(result).containsExactly(ayo, alice);
     }
 
     @Test
@@ -60,10 +60,10 @@ public class WinnerTest {
         ayo.moveForward(5);
         mike.moveForward(6);
         alice.moveForward(7);
-        Cars cars = new Cars(List.of(ayo, mike,alice));
+        Cars cars = new Cars(List.of(ayo, mike, alice));
         //when
         List<Car> result = cars.findWinnerList();
         //then
-        assertThat(result).containsExactly(ayo,mike,alice);
+        assertThat(result).containsExactly(ayo, mike, alice);
     }
 }

@@ -38,11 +38,11 @@ class CarsTest {
 
     @DisplayName("예외: 이름에 빈 문자열, 공백이 들어오는 경우")
     @ParameterizedTest()
-    @ValueSource(strings = {""," ","\n","Mike, Ayo"})
+    @ValueSource(strings = {"", " ", "\n", "Mike, Ayo"})
     void InvalidName_Blank_Fail(String name) {
-        assertThatThrownBy(()-> Cars.createCarList(name))
-                        .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessage(ErrorMessage.INVALID_NAME_BLANK.message());
+        assertThatThrownBy(() -> Cars.createCarList(name))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorMessage.INVALID_NAME_BLANK.message());
     }
 
     @DisplayName("예외: 이름이 null인 경우")
@@ -58,35 +58,35 @@ class CarsTest {
     @Test
     void InvalidName_Not_Comma_Fail() {
         String name = "Ayo/Mike";
-        assertThatThrownBy(()-> Cars.createCarList(name))
-                        .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessage(ErrorMessage.INVALID_NAME_SPECIAL_CHARACTERS.message());
+        assertThatThrownBy(() -> Cars.createCarList(name))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorMessage.INVALID_NAME_SPECIAL_CHARACTERS.message());
     }
 
     @DisplayName("예외: 이름에 , 만 적은 경우")
     @Test
     void InvalidName_No_Name_Fail() {
         String name = ",,,";
-        assertThatThrownBy(()-> Cars.createCarList(name))
-                        .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessage(ErrorMessage.INVALID_NAME_NO_NAME.message());
+        assertThatThrownBy(() -> Cars.createCarList(name))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorMessage.INVALID_NAME_NO_NAME.message());
     }
 
     @DisplayName("예외: 이름에 , 가 연속인 경우")
     @Test
     void InvalidName_Sequence_Comma_Fail() {
         String name = "Mike,,Ayo";
-        assertThatThrownBy(()-> Cars.createCarList(name))
-                        .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessage(ErrorMessage.INVALID_NAME_SEQUENCE_COMMA.message());
+        assertThatThrownBy(() -> Cars.createCarList(name))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorMessage.INVALID_NAME_SEQUENCE_COMMA.message());
     }
 
     @DisplayName("예외: 이름이 , 로 시작하거나 끝나는 경우")
     @ParameterizedTest(name = "[case: {0}]")
-    @ValueSource(strings = {",Ayo,Mike","Mike,Ayo,",",Ayo,"})
+    @ValueSource(strings = {",Ayo,Mike", "Mike,Ayo,", ",Ayo,"})
     void InvalidName_Location_Comma_Fail(String name) {
-        assertThatThrownBy(()-> Cars.createCarList(name))
-                        .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessage(ErrorMessage.INVALID_NAME_LOCATION_COMMA.message());
+        assertThatThrownBy(() -> Cars.createCarList(name))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorMessage.INVALID_NAME_LOCATION_COMMA.message());
     }
 }

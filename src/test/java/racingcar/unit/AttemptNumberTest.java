@@ -21,16 +21,16 @@ public class AttemptNumberTest {
     @Test
     @DisplayName("예외: 시도 횟수가 null인 경우")
     void InvalidAttemptNumber_Null_Fail() {
-        assertThatThrownBy(()-> AttemptNumber.create(null))
+        assertThatThrownBy(() -> AttemptNumber.create(null))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.INVALID_ATTEMPT_NUMBER_NULL.message());
     }
 
     @ParameterizedTest(name = "[case: {index}]")
-    @ValueSource(strings = {""," "})
+    @ValueSource(strings = {"", " "})
     @DisplayName("예외: 시도 횟수가 빈 문자열 혹은 공백인 경우")
     void InvalidAttemptNumber_Blank_Fail(String name) {
-        assertThatThrownBy(()-> AttemptNumber.create(name))
+        assertThatThrownBy(() -> AttemptNumber.create(name))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.INVALID_ATTEMPT_NUMBER_BLANK.message());
     }
@@ -38,7 +38,7 @@ public class AttemptNumberTest {
     @Test
     @DisplayName("예외: 시도 횟수가 0 미만인 경우")
     void InvalidAttemptNumber_Minus_Fail() {
-        assertThatThrownBy(()-> AttemptNumber.create("-2"))
+        assertThatThrownBy(() -> AttemptNumber.create("-2"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.INVALID_ATTEMPT_NUMBER_MINUS.message());
     }
