@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 import racingcar.message.ErrorMessage;
 
 public final class Utils {
-    static Pattern splitComma=Pattern.compile(",");
+    static Pattern splitComma = Pattern.compile(",");
     static Pattern comma = Pattern.compile("^[,]*$");
 
     private Utils() {
@@ -18,21 +18,25 @@ public final class Utils {
     }
 
     public static int changeToInt(String input) {
-        validateAttemptNumber(input);
-        return Integer.parseInt(input);
+        try {
+            validateAttemptNumber(input);
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_ATTEMPT_NUMBER_OVER_INT.message());
+        }
     }
 
     private static void validateNames(String input) {
-        if(input==null) {
+        if (input == null) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_NULL.message());
         }
-        if(input.isBlank()) {
+        if (input.isBlank()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_BLANK.message());
         }
-        if(comma.matcher(input).matches()) {
+        if (comma.matcher(input).matches()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_NO_NAME.message());
         }
-        if(input.startsWith(splitComma.pattern())||input.endsWith(splitComma.pattern())) {
+        if (input.startsWith(splitComma.pattern()) || input.endsWith(splitComma.pattern())) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_LOCATION_COMMA.message());
         }
     }
@@ -41,7 +45,7 @@ public final class Utils {
         if (input == null) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_ATTEMPT_NUMBER_NULL.message());
         }
-        if(input.isBlank()) {
+        if (input.isBlank()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_ATTEMPT_NUMBER_BLANK.message());
         }
     }

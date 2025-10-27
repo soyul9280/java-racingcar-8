@@ -13,6 +13,7 @@ public enum ErrorMessage {
     INVALID_ATTEMPT_NUMBER_NULL("시도 횟수에 null이 올 수 없습니다."),
     INVALID_ATTEMPT_NUMBER_MINUS("시도 횟수에 음수가 올 수 없습니다."),
     INVALID_ATTEMPT_NUMBER_ZERO("시도 횟수에 0이 올 수 없습니다."),
+    INVALID_ATTEMPT_NUMBER_OVER_INT("시도 횟수가 너무 큽니다. int범위 내로 입력해주세요."),
 
     INVALID_POSITION_MINUS("위치에 음수가 들어올 수 없습니다.");
 
