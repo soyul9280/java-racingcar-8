@@ -42,4 +42,12 @@ public class AttemptNumberTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.INVALID_ATTEMPT_NUMBER_MINUS.message());
     }
+
+    @Test
+    @DisplayName("예외: 시도 횟수가 int범위를 넘어선 경우")
+    void InvalidAttemptNumber_Max_Fail() {
+        assertThatThrownBy(() -> AttemptNumber.create("2547483650"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorMessage.INVALID_ATTEMPT_NUMBER_OVER_INT.message());
+    }
 }
